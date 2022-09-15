@@ -41,7 +41,7 @@ class StudentController {
     });
   }
 
-  getById(req, res) {
+  show(req, res) {
     const {
       id,
     } = req.params;

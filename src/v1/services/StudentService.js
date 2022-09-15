@@ -5,6 +5,7 @@ class StudentService {
 
   getById(id) {
     // bussines logic
+
   }
 }
 

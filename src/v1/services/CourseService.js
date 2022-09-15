@@ -1,5 +1,7 @@
 class CourseService {
-  list(req, res) {}
+  list(req, res) {
+
+  }
 }
 
 export default new CourseService();

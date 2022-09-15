@@ -1,11 +1,14 @@
 import StudentService from '../services/StudentService';
-import { statusCode } from '../helpers';
+import {
+  statusCode,
+  validateQueries,
+} from '../helpers';
 
 class StudentController {
   filter(req, res) {
     const queries = req.query;
 
-    if (!queries) {
+    if (Object.keys(queries).length === 0) {
       return res.status(statusCode.BAD_REQUEST).json({
         status: 'error',
         code: 400,
@@ -13,21 +16,35 @@ class StudentController {
       });
     }
 
-    const response = StudentService.filter(...queries);
-
-    if (response.error) {
+    if (!validateQueries(queries)) {
       return res.status(statusCode.BAD_REQUEST).json({
         status: 'error',
         code: 400,
-        message: response.error.message,
+        message: 'bad request, unexpected querie parameter',
       });
     }
 
-    return res.status(statusCode.OK).json(response);
+    const response = StudentService.filter(queries);
+
+    if (response.length === 0) {
+      return res.status(statusCode.BAD_REQUEST).json({
+        status: 'error',
+        code: 400,
+        message: 'Invalid value in the query parameter',
+      });
+    }
+
+    return res.status(statusCode.OK).json({
+      status: 'ok',
+      code: 200,
+      message: response,
+    });
   }
 
   getById(req, res) {
-    const { id } = req.params;
+    const {
+      id,
+    } = req.params;
 
     if (!id) {
       return res.status(statusCode.BAD_REQUEST).json({
@@ -39,7 +56,7 @@ class StudentController {
 
     const response = StudentService.getById(id);
 
-    if (response.error) {
+    if (!response) {
       return res.status(statusCode.NOT_FOUND).json({
         status: 'error',
         code: 404,
@@ -47,7 +64,11 @@ class StudentController {
       });
     }
 
-    return res.status(statusCode.OK).json(response);
+    return res.status(statusCode.OK).json({
+      status: 'ok',
+      code: 200,
+      message: response,
+    });
   }
 }
 

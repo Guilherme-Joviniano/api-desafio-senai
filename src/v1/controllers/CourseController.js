@@ -1,9 +1,17 @@
 import CourseService from '../services/CourseService';
+import {
+  statusCode,
+} from '../helpers';
 
 class StudentController {
-  list() {
+  list(req, res) {
     const response = CourseService.list();
-    return response;
+
+    return res.status(statusCode.OK).json({
+      status: 'ok',
+      code: 200,
+      message: response,
+    });
   }
 }
 

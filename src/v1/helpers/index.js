@@ -1,3 +1,4 @@
 import statusCode from './statusCode';
+import validateQueries from './validateQueries';
 
-export { statusCode };
+export { statusCode, validateQueries };

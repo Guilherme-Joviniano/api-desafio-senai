@@ -10,6 +10,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'consistent-return': 'off',
     'no-console': 'off',
     'class-methods-use-this': 'off',
   },

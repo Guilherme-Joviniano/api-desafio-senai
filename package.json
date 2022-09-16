@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/v1/server.js "
+    "dev": "nodemon ./src/v1/server.js ",
+    "build": "sucrase ./src/v1 -d ./dist --transforms imports",
+    "start": "nodemon ./dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +17,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "sucrase": "^3.26.0"
+    "sucrase": "^3.27.0"
   },
   "dependencies": {
     "cors": "^2.8.5",

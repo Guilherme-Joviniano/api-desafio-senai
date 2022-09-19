@@ -16,6 +16,11 @@ class StudentService {
           status,
         }) => status.toLowerCase() === value);
       }
+      if (key === 'year') {
+        filteredStudents = students.filter(({
+          curso,
+        }) => curso[0].conclusao.toLowerCase() === value);
+      }
     });
     return filteredStudents;
   }
@@ -26,6 +31,23 @@ class StudentService {
     }) => id === matricula)[0];
 
     return response;
+  }
+
+  listYears(course) {
+    const years = [];
+
+    const filteredStudents = students.filter(({
+      curso,
+    }) => curso[0].sigla.toLowerCase() === course.toLowerCase());
+
+    filteredStudents.forEach(({
+      curso,
+    }) => {
+      years.push(curso[0].conclusao);
+    });
+
+    console.log(years);
+    return years;
   }
 }
 

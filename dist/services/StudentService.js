@@ -16,6 +16,11 @@ class StudentService {
           status,
         }) => status.toLowerCase() === value);
       }
+      if (key === 'year') {
+        filteredStudents = _alunojson2.default.filter(({
+          curso,
+        }) => curso[0].conclusao.toLowerCase() === value);
+      }
     });
     return filteredStudents;
   }

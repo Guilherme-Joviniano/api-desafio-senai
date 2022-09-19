@@ -5,7 +5,6 @@ class StudentService {
     let filteredStudents = [];
     const entries = Object.entries(queries);
 
-    // bussines logic
     entries.forEach(([key, value]) => {
       if (key === 'course') {
         filteredStudents = students.filter(({

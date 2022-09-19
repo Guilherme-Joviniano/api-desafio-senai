@@ -3,6 +3,7 @@
 class CourseService {
   list() {
     const response = _cursojson2.default;
+
     return response;
   }
 }

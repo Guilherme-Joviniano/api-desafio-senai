@@ -32,6 +32,23 @@ class StudentService {
 
     return response;
   }
+
+  listYears(course) {
+    const years = [];
+
+    const filteredStudents = _alunojson2.default.filter(({
+      curso,
+    }) => curso[0].sigla.toLowerCase() === course.toLowerCase());
+
+    filteredStudents.forEach(({
+      curso,
+    }) => {
+      years.push(curso[0].conclusao);
+    });
+
+    console.log(years);
+    return years;
+  }
 }
 
 exports. default = new StudentService();

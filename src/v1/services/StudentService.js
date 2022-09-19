@@ -2,9 +2,10 @@ import students from '../helpers/mock/aluno.json';
 
 class StudentService {
   filter(queries) {
-    // bussines logic
     let filteredStudents = [];
     const entries = Object.entries(queries);
+
+    // bussines logic
     entries.forEach(([key, value]) => {
       if (key === 'course') {
         filteredStudents = students.filter(({
@@ -22,6 +23,7 @@ class StudentService {
         }) => curso[0].conclusao.toLowerCase() === value);
       }
     });
+
     return filteredStudents;
   }
 
@@ -46,7 +48,6 @@ class StudentService {
       years.push(curso[0].conclusao);
     });
 
-    console.log(years);
     return years;
   }
 }

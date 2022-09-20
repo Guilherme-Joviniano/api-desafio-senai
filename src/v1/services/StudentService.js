@@ -48,7 +48,10 @@ class StudentService {
       years.push(curso[0].conclusao);
     });
 
-    return years;
+    return years.filter((
+      year,
+      index,
+    ) => years.indexOf(year) === index);
   }
 }
 

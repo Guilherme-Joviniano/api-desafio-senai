@@ -5,13 +5,12 @@ import {
 } from '../helpers';
 
 class StudentController {
-  listByConclusionYear(req, res) {
+  listYears(req, res) {
     const {
       course,
-      year,
     } = req.query;
 
-    const response = StudentService.listYears(course, year);
+    const response = StudentService.listYears(course);
 
     if (response.length === 0) {
       return res.status(statusCode.BAD_REQUEST).json({

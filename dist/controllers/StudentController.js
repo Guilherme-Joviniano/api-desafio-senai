@@ -5,6 +5,29 @@
 var _helpers = require('../helpers');
 
 class StudentController {
+  listByConclusionYear(req, res) {
+    const {
+      course,
+      year,
+    } = req.query;
+
+    const response = _StudentService2.default.listYears(course, year);
+
+    if (response.length === 0) {
+      return res.status(_helpers.statusCode.BAD_REQUEST).json({
+        status: 'error',
+        code: 400,
+        message: 'bad request, invalid value in the queries',
+      });
+    }
+
+    return res.status(_helpers.statusCode.OK).json({
+      status: 'ok',
+      code: 200,
+      message: response,
+    });
+  }
+
   filter(req, res) {
     const queries = req.query;
 

@@ -9,7 +9,7 @@ const router = _express.Router.call(void 0, );
 router.get('/students', _StudentController2.default.filter); // list all by course or others queries
 router.get('/students/:id', _StudentController2.default.show); // get student by id
 
-router.get('/year/', _StudentController2.default.listByConclusionYear);
+router.get('/years/', _StudentController2.default.listYears);
 
 router.get('/courses', _CourseController2.default.list); // list all courses
 

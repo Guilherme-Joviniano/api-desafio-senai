@@ -2,9 +2,10 @@
 
 class StudentService {
   filter(queries) {
-    // bussines logic
     let filteredStudents = [];
     const entries = Object.entries(queries);
+
+    // bussines logic
     entries.forEach(([key, value]) => {
       if (key === 'course') {
         filteredStudents = _alunojson2.default.filter(({
@@ -22,6 +23,7 @@ class StudentService {
         }) => curso[0].conclusao.toLowerCase() === value);
       }
     });
+
     return filteredStudents;
   }
 
@@ -46,8 +48,10 @@ class StudentService {
       years.push(curso[0].conclusao);
     });
 
-    console.log(years);
-    return years;
+    return years.filter((
+      year,
+      index,
+    ) => years.indexOf(year) === index);
   }
 }
 

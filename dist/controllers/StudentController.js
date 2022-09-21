@@ -5,13 +5,12 @@
 var _helpers = require('../helpers');
 
 class StudentController {
-  listByConclusionYear(req, res) {
+  listYears(req, res) {
     const {
       course,
-      year,
     } = req.query;
 
-    const response = _StudentService2.default.listYears(course, year);
+    const response = _StudentService2.default.listYears(course);
 
     if (response.length === 0) {
       return res.status(_helpers.statusCode.BAD_REQUEST).json({

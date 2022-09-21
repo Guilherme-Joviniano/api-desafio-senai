@@ -9,7 +9,7 @@ const router = Router();
 router.get('/students', StudentController.filter); // list all by course or others queries
 router.get('/students/:id', StudentController.show); // get student by id
 
-router.get('/year/', StudentController.listByConclusionYear);
+router.get('/years/', StudentController.listYears);
 
 router.get('/courses', CourseController.list); // list all courses
 

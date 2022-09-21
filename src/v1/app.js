@@ -1,6 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import { headers, methods } from './middlewares/global';
+import serverless from 'serverless-http';
+import {
+  headers,
+  methods,
+} from './middlewares/global';
 import routes from './routes';
 
 class App {
@@ -18,8 +22,14 @@ class App {
   }
 
   routes() {
-    this.app.use(routes);
+    this.app.use('/.netlify/functions/api', routes);
   }
 }
 
-export default new App().app;
+const app = new App();
+const handler = serverless(app);
+
+export {
+  app,
+  handler,
+};

@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/v1/server.js ",
-    "build": "sucrase ./src/v1 -d ./dist --transforms imports",
-    "start": "nodemon ./dist/server.js"
+    "buildDev": "sucrase ./src/v1 -d ./dist --transforms imports",
+    "startDev": "nodemon ./dist/server.js",
+    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "keywords": [],
   "author": "",
@@ -18,10 +20,13 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "sucrase": "^3.27.0"
+
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "nodemon": "^2.0.19"
+    "netlify-lambda": "^2.0.15",
+    "nodemon": "^2.0.19",
+    "serverless-http": "^3.0.2"
   }
 }

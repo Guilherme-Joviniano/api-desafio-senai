@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import serverless from 'serverless-http';
 import {
   headers,
   methods,
@@ -22,14 +21,8 @@ class App {
   }
 
   routes() {
-    this.app.use('/.netlify/functions/api', routes);
+    this.app.use(routes);
   }
 }
 
-const app = new App();
-const handler = serverless(app);
-
-export {
-  app,
-  handler,
-};
+export default new App().app;

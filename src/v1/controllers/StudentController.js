@@ -10,6 +10,14 @@ class StudentController {
       course,
     } = req.query;
 
+    if (!course) {
+      return res.status(statusCode.BAD_REQUEST).json({
+        status: 'error',
+        code: 400,
+        message: 'bad request, missing the querie parameter',
+      });
+    }
+
     const response = StudentService.listYears(course);
 
     if (response.length === 0) {

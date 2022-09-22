@@ -8,7 +8,8 @@
     "dev": "nodemon ./src/v1/server.js ",
     "build": "sucrase ./src/v1 -d ./dist --transforms imports",
     "start": "nodemon ./dist/server.js",
-    "startNetlify": "./node_modules/.bin/netlify-lambda serve ./src/v1"
+    "startNetlify": "./node_modules/.bin/netlify-lambda serve ./src/v1",
+    "buildNetlify": "./node_modules/.bin/netlify-lambda build ./src/v1"
   },
   "keywords": [],
   "author": "",

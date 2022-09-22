@@ -21,7 +21,7 @@ class App {
   }
 
   routes() {
-    this.app.use(_routes2.default);
+    this.app.use('/.netlify/functions/api', _routes2.default);
   }
 }
 

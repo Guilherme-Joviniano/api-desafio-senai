@@ -1,5 +1,6 @@
 "use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _express = require('express'); var _express2 = _interopRequireDefault(_express);
 var _cors = require('cors'); var _cors2 = _interopRequireDefault(_cors);
+var _serverlesshttp = require('serverless-http'); var _serverlesshttp2 = _interopRequireDefault(_serverlesshttp);
 
 
 
@@ -21,8 +22,14 @@ class App {
   }
 
   routes() {
-    this.app.use(_routes2.default);
+    this.app.use('/.netlify/functions/api', _routes2.default);
   }
 }
 
-exports. default = new App().app;
+const app = new App();
+const handler = _serverlesshttp2.default.call(void 0, app);
+
+
+
+
+exports.app = app; exports.handler = handler;

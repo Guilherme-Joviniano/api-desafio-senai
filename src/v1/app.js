@@ -1,6 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import { headers, methods } from './middlewares/global';
+import {
+  headers,
+  methods,
+} from './middlewares/global';
 import routes from './routes';
 
 class App {

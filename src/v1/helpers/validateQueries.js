@@ -1,12 +1,6 @@
-const validateQueries = (queries) => {
-  let status;
-  Object.keys(queries).forEach((querie) => {
-    if (querie !== 'status' || querie !== 'course' || querie !== 'year') {
-      status = false;
-    }
-    status = true;
-  });
-  return status;
-};
+import queriesModel from './queries';
+
+// eslint-disable-next-line max-len
+const validateQueries = (queries) => Object.keys(queries).forEach((key) => Object.keys(queriesModel).includes(key));
 
 export default validateQueries;

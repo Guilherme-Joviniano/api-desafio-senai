@@ -1,7 +1,4 @@
 import students from '../helpers/mock/aluno.json';
-import {
-  queriesModel,
-} from '../helpers';
 
 class StudentService {
   filter(queries) {

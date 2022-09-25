@@ -1,4 +1,7 @@
 import students from '../helpers/mock/aluno.json';
+import {
+  queriesModel,
+} from '../helpers';
 
 class StudentService {
   filter(queries) {
@@ -6,17 +9,17 @@ class StudentService {
     const entries = Object.entries(queries);
 
     entries.forEach(([key, value]) => {
-      if (key === 'course') {
+      if (key === queriesModel.course) {
         filteredStudents = students.filter(({
           curso,
         }) => curso[0].sigla.toLowerCase() === value);
       }
-      if (key === 'status') {
+      if (key === queriesModel.status) {
         filteredStudents = filteredStudents.filter(({
           status,
         }) => status.toLowerCase() === value);
       }
-      if (key === 'year') {
+      if (key === queriesModel.year) {
         filteredStudents = students.filter(({
           curso,
         }) => curso[0].conclusao.toLowerCase() === value);

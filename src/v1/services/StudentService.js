@@ -9,17 +9,17 @@ class StudentService {
     const entries = Object.entries(queries);
 
     entries.forEach(([key, value]) => {
-      if (key === queriesModel.course) {
+      if (key === 'course') {
         filteredStudents = students.filter(({
           curso,
         }) => curso[0].sigla.toLowerCase() === value);
       }
-      if (key === queriesModel.status) {
+      if (key === 'status') {
         filteredStudents = filteredStudents.filter(({
           status,
         }) => status.toLowerCase() === value);
       }
-      if (key === queriesModel.year) {
+      if (key === 'year') {
         filteredStudents = students.filter(({
           curso,
         }) => curso[0].conclusao.toLowerCase() === value);

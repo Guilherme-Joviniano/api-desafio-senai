@@ -14,4 +14,5 @@ module.exports = {
     'no-console': 'off',
     'class-methods-use-this': 'off',
   },
+  ignorePatterns: ['dist/*', 'functions/*'],
 };
